@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
-from mobtest.serializers import UserSerializer
+from .serializers import ContractorSerializer, ContractorApplicationSerializer
 from rest_framework import viewsets
+from .models import Contractor, ContractorApplication
+
 
 # from rest_framework.decorators import api_view
 
@@ -14,8 +16,13 @@ class ContractorApplicationViewSet(viewsets.ModelViewSet):
     """
 
     # TODO left for debugging - change this to Contractor queryset
-    queryset = User.objects.all().order_by("-date_joined")
-    serializer_class = UserSerializer
+    queryset = ContractorApplication.objects.all().order_by("-start_date")
+    serializer_class = ContractorApplicationSerializer
+
+
+class ContractorViewSet(viewsets.ModelViewSet):
+    queryset = Contractor.objects.all()
+    serializer_class = ContractorSerializer
 
 
 # @api_view(["GET"])

@@ -5,13 +5,17 @@ import axios from "axios";
 
 export const ROOT = "http://localhost:8000";
 
+const endPoints = {
+  contractors:"/api/testapp/contract/"
+}
+
 
 export const useFetchContractorApplications = () => {
   
-    useQuery(
+  return  useQuery(
       KEY_FETCH_CONTRACTORS,
       async () => {
-        const url = ROOT + "";
+        const url = ROOT + endPoints.contractors;
         const { data } = await axios.get(url);
         return data;
       },
