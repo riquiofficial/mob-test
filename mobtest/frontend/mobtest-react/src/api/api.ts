@@ -6,7 +6,7 @@ import axios from "axios";
 export const ROOT = "http://localhost:8000";
 
 const endPoints = {
-  contractors:"/api/testapp/contract/"
+  contractors:"/api/testapp/contract/",
 }
 
 
